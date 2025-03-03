@@ -24,6 +24,7 @@
     </style>
 </head>
 <body class='container text-center mt-5'>
+    <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="QRyptiK Logo" width="400" height="300">
     <h1>Decoded QR Code Result</h1>
     <div class='alert alert-info' id='decodedContent'>
         <pre><code>{{ content }}</pre></code></div>

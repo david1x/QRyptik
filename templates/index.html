@@ -18,16 +18,18 @@
   </script>
 </head>
 <body class='container text-center mt-5'>
-  <h1>QR Code Generator</h1>
+    <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="QRyptiK Logo" width="400" height="300">
+
+    
     <form action='/generate' method='post'>
-        <textarea id='text' name='text' class='form-control' rows='4' onkeyup='updateCharCount()'></textarea>
+        <textarea id='text' name='text' class='form-control' rows='20' onkeyup='updateCharCount()'></textarea>
     <br>
         <small>Characters: <span id='charCount'>0</span></small>
     <br>
         <small>Estimated parts: <span id='estimatedParts'>0</span></small>
     <br>
         <button type='submit' class='btn btn-primary mt-2'>Generate QR</button>
-  </form>
-    <a href='/upload' class='btn btn-secondary mt-2'>Upload to Decode QR</a>
+    </form>
+        <a href='/upload' class='btn btn-secondary mt-2'>Upload to Decode QR</a>
 </body>
 </html>

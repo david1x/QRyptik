@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 </head>
 <body class='container text-center mt-5'>
+    <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="QRyptiK Logo" width="400" height="300">
     <h1>Upload QR Codes to Decode</h1>
     <form action='/upload' method='post' enctype='multipart/form-data'>
         <input type='file' name='file' class='form-control' multiple required>
