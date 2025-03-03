@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-    <title>QR Code Generator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-    <script>
-        const QR_SIZE_LIMIT = 250; // Same as server-side constant
+  <title>QR Code Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <script>
+    const QR_SIZE_LIMIT = 250; // Same as server-side constant
 
-        function updateCharCount() {
-            const textValue = document.getElementById('text').value;
-            const charCount = textValue.length;
-            document.getElementById('charCount').innerText = charCount;
+    function updateCharCount() {
+      const textValue = document.getElementById('text').value;
+      const charCount = textValue.length;
+      document.getElementById('charCount').innerText = charCount;
             
             // Calculate estimated parts
-            const estimatedParts = Math.ceil(charCount / QR_SIZE_LIMIT);
-            document.getElementById('estimatedParts').innerText = estimatedParts;
-        }
-    </script>
+      const estimatedParts = Math.ceil(charCount / QR_SIZE_LIMIT);
+      document.getElementById('estimatedParts').innerText = estimatedParts;
+    }
+  </script>
 </head>
 <body class='container text-center mt-5'>
-    <h1>QR Code Generator</h1>
+  <h1>QR Code Generator</h1>
     <form action='/generate' method='post'>
         <textarea id='text' name='text' class='form-control' rows='4' onkeyup='updateCharCount()'></textarea>
-        <br>
+    <br>
         <small>Characters: <span id='charCount'>0</span></small>
-        <br>
+    <br>
         <small>Estimated parts: <span id='estimatedParts'>0</span></small>
-        <br>
+    <br>
         <button type='submit' class='btn btn-primary mt-2'>Generate QR</button>
-    </form>
+  </form>
     <a href='/upload' class='btn btn-secondary mt-2'>Upload to Decode QR</a>
 </body>
 </html>

@@ -4,15 +4,13 @@
   <title>QR Code Generated</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
   <style>
-    /* Disable page scrolling */
     html, body {
       height: 100%;
       margin: 0;
       overflow: hidden;
     }
-    /* Scrollable container for QR images */
     .scroll-box {
-      max-height: 60vh; /* Adjust as needed */
+      max-height: 60vh;
       overflow-y: auto;
       border: 1px solid #ddd;
       padding: 10px;
@@ -22,19 +20,18 @@
 <body class='container text-center mt-5'>
   <h1>Generated QR Codes</h1>
   
-  <!-- Scrollable container for images -->
   <div class="scroll-box">
     {% for img in images %}
     <div>
       <img src="{{ img }}" class="img-fluid mt-2" /><br>
-      <a href="{{ img }}" class='btn btn-success mt-2' download>Save Image</a>
+      <a href="{{ img }}" class='btn btn-success mt-2' download="qr_{{ loop.index }}.png">Save Image</a>
     </div>
     {% endfor %}
   </div>
   
   <br>
-  <!-- Button to download all images as a ZIP file -->
-  <a href="{{ zip_file }}" class='btn btn-warning mt-3' download>Save All QR Codes</a>
+  <!-- ZIP download link via data URL -->
+  <a href="data:application/zip;base64,{{ zip_file }}" class='btn btn-warning mt-3' download="qr_codes.zip">Save All QR Codes</a>
   
   <br>
   <a href='/' class='btn btn-primary mt-2'>Home</a>
