@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title>Decoded QR Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <script>
+        function copyToClipboard() {
+            let content = document.getElementById('decodedContent').innerText;
+            navigator.clipboard.writeText(content).then(() => {
+                alert('Copied to clipboard!');
+            }).catch(err => {
+                console.error('Copy failed', err);
+            });
+        }
+    </script>
+    <style>
+        pre {
+          background-color: #f5f5f5;
+          padding: 10px;
+          border: 1px solid #ddd;
+          overflow-x: auto;
+          text-align: left;
+        }
+    </style>
+</head>
+<body class='container text-center mt-5'>
+    <h1>Decoded QR Code Result</h1>
+    <div class='alert alert-info' id='decodedContent'>
+        <pre><code>{{ content }}</pre></code></div>
+    <button class='btn btn-primary' onclick='copyToClipboard()'>Copy to Clipboard</button>
+    <br><br>
+    <a href='/' class='btn btn-secondary'>Home</a>
+</body>
+</html>
+

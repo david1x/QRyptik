@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title>Upload QR Codes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<body class='container text-center mt-5'>
+    <h1>Upload QR Codes to Decode</h1>
+    <form action='/upload' method='post' enctype='multipart/form-data'>
+        <input type='file' name='file' class='form-control' multiple required>
+        <button type='submit' class='btn btn-primary mt-2'>Upload</button>
+    </form>
+    <a href='/' class='btn btn-secondary mt-2'>Home</a>
+</body>
+</html>
